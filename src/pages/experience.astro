@@ -9,51 +9,55 @@ const description = 'Professional work history and career progression.';
 
 const experiences = [
   {
-    title: 'Senior Full-Stack Developer',
-    company: 'Freelance / Independent',
-    period: '2022 - Present',
-    description: 'Building premium software solutions for clients worldwide. Specializing in enterprise applications, AI integration, and cross-platform development.',
+    title: '.NET Intern',
+    company: 'Dengage',
+    type: 'Internship · On-site',
+    period: 'Jan 2026 – Present · Bursa, Turkey',
+    description: 'Joined Dengage\'s .NET team in mid-January 2026. Actively contributing to enterprise-level projects, experiencing firsthand how Clean Architecture and Domain-Driven Design (DDD) are applied in real-world production systems.',
     highlights: [
-      'Developed custom .NET solutions for financial institutions',
-      'Built AI-powered Flutter applications with machine learning integration',
-      'Delivered scalable microservices architecture for startups',
-      'Consulted on digital transformation initiatives'
+      'Working on enterprise .NET projects in a corporate environment',
+      'Applying Clean Architecture and DDD in real production systems',
+      'Gaining hands-on experience with ASP.NET Core and Entity Framework Core',
+      'Collaborating within an experienced team using Agile methodologies'
     ]
   },
   {
-    title: 'Full-Stack Developer',
-    company: 'E-Cart Digital Solutions',
-    period: '2020 - 2022',
-    description: 'Led development of e-commerce platforms and mobile applications. Focused on Flutter for cross-platform solutions and .NET for backend services.',
+    title: 'Backend Developer',
+    company: 'EPARAF',
+    type: 'Full-time · Hybrid',
+    period: 'Aug 2025 – Present · Manisa, Turkey',
+    description: 'Working on digital contract and payment systems as a Backend Developer. Building and maintaining enterprise-grade APIs and services for legally binding digital signature workflows.',
     highlights: [
-      'Built Flutter e-commerce apps with 50k+ active users',
-      'Developed RESTful APIs serving 1000+ requests/minute',
-      'Implemented Firebase authentication and cloud messaging',
-      'Reduced app load times by 60% through optimization'
+      'Developing and maintaining backend APIs for digital contract workflows',
+      'Working with Docker for containerized deployments',
+      'Building services for legally binding digital signature systems',
+      'Implementing Clean Architecture patterns in a production environment'
     ]
   },
   {
-    title: 'Software Developer',
-    company: 'TechVenture Studios',
-    period: '2018 - 2020',
-    description: 'Full-stack development using C#, .NET Core, and modern JavaScript frameworks. Mobile development with Flutter.',
+    title: 'Flutter Developer Intern',
+    company: 'Performans Software',
+    type: 'Internship · On-site',
+    period: 'Jul 2025 – Sep 2025 · 3 months · Bursa, Turkey',
+    description: 'Worked as a Flutter Developer intern at Performans Software. Gained hands-on experience in mobile application development using Flutter and Android Studio.',
     highlights: [
-      'Developed 5+ production Flutter applications',
-      'Built real-time chat applications with WebSocket integration',
-      'Created custom UI components and design systems',
-      'Implemented CI/CD pipelines for automated deployments'
+      'Mobile app development with Flutter and Dart',
+      'Working with Android Studio in a professional environment',
+      'Contributing to real mobile application features',
+      'Learning mobile development best practices'
     ]
   },
   {
-    title: 'Junior Software Developer',
-    company: 'StartupHub Agency',
-    period: '2016 - 2018',
-    description: 'Started professional career building web and mobile applications. Gained expertise in C#, ASP.NET, and mobile development.',
+    title: 'Software Technical Support',
+    company: 'Mikrotek Bilgisayar',
+    type: 'Internship · On-site',
+    period: 'Aug 2020 – Jul 2021 · 1 year · Bursa, Turkey',
+    description: 'Took an active role in end-to-end operational processes of Micro Software-based ERP and commercial accounting software. Gained experience in software integration, installation, technical support, troubleshooting, process analysis, and customer relationship management.',
     highlights: [
-      'Built responsive web applications for local businesses',
-      'Learned Clean Code principles and best practices',
-      'Contributed to open-source Flutter packages',
-      'Participated in agile development methodologies'
+      'ERP software installation and integration for enterprise clients',
+      'Technical support and issue resolution for commercial accounting software',
+      'Process analysis and workflow optimization',
+      'Customer relationship management and end-user training'
     ]
   }
 ];
@@ -93,7 +97,7 @@ const experiences = [
                   <div class="timeline-marker"></div>
                   <div class="timeline-info">
                     <h2 class="job-title">{exp.title}</h2>
-                    <p class="job-company">{exp.company}</p>
+                    <p class="job-company">{exp.company} · <span class="job-type">{exp.type}</span></p>
                     <p class="job-period">{exp.period}</p>
                   </div>
                 </div>
@@ -191,6 +195,11 @@ const experiences = [
   }
 
   .job-period {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-tertiary);
+  }
+
+  .job-type {
     font-size: var(--font-size-sm);
     color: var(--color-text-tertiary);
   }

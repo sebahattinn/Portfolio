@@ -11,56 +11,56 @@ const projects = [
   {
     id: 'eparaf',
     title: 'E-paraf',
-    shortDescription: 'Digital signature platform for secure document workflows.',
-    description: 'A comprehensive digital signature platform enabling secure document workflows and legally binding electronic signatures for businesses. Built with enterprise-grade security and compliance in mind. The platform handles thousands of documents daily with bank-grade encryption and provides a seamless API for enterprise integration.',
-    technologies: ['C#', '.NET Core', 'PostgreSQL', 'Azure', 'Entity Framework', 'REST API', 'OAuth 2.0'],
-    highlights: ['Bank-grade security with AES-256 encryption', 'Multi-language support (TR/EN)', 'RESTful API for enterprise integration', 'Real-time notifications via SignalR', 'Comprehensive audit logging', 'e-İmza integration'],
+    shortDescription: 'Enterprise digital signature platform with Clean Architecture. Legally binding e-signatures, role-based access, and payment system integration.',
+    description: 'A comprehensive enterprise digital signature platform enabling secure document workflows and legally binding electronic signatures for businesses. Built with Clean Architecture and DDD patterns. Features role-based access control, payment system integration, and real-time notifications. The platform handles high-volume document processing with enterprise-grade security.',
+    technologies: ['ASP.NET Core', 'C#', 'PostgreSQL', 'Redis', 'Docker', 'RabbitMQ', 'Clean Architecture', 'DDD', 'Entity Framework Core', 'REST API'],
+    highlights: ['Clean Architecture & Domain-Driven Design', 'Role-based access control (RBAC)', 'Payment system integration', 'Redis caching for high performance', 'RabbitMQ message queue for async processing', 'Real-time notifications via SignalR', 'Containerized with Docker', 'Comprehensive audit logging'],
     link: '#'
   },
   {
     id: 'digitalwill',
     title: 'Digital Will',
-    shortDescription: 'Secure digital estate planning and asset management.',
-    description: 'A secure digital estate planning platform for managing and transferring digital assets after life events. Features end-to-end encryption and legal compliance across multiple jurisdictions. Users can securely store passwords, cryptocurrency keys, social media accounts, and important documents.',
-    technologies: ['Flutter', 'Firebase', 'Dart', 'BLoC', 'Firebase Auth', 'Cloud Firestore'],
+    shortDescription: 'Secure digital estate planning app with end-to-end encrypted storage for digital assets and beneficiary management.',
+    description: 'A secure digital estate planning platform for managing and transferring digital assets after life events. Features end-to-end encryption and legal compliance. Users can securely store passwords, cryptocurrency keys, social media accounts, and important documents with beneficiary management.',
+    technologies: ['Flutter', 'Dart', 'Firebase', 'BLoC', 'Firebase Auth', 'Cloud Firestore', 'AES-256'],
     highlights: ['End-to-end encryption (AES-256 + RSA)', 'Mobile-first responsive design', 'Legal compliance (GDPR, KVKK)', 'Digital asset inventory management', 'Beneficiary management system', 'Secure document storage'],
     link: '#'
   },
   {
     id: 'imagebroadcast',
     title: 'ImageBroadcast',
-    shortDescription: 'Multi-platform image distribution and management system.',
-    description: 'A multi-platform image distribution system for media companies to manage and broadcast visual content efficiently. Supports real-time synchronization, batch processing, and CDN integration for fast global delivery.',
+    shortDescription: 'Multi-platform image distribution system for media management with real-time sync and CDN integration.',
+    description: 'A multi-platform image distribution system for media companies to manage and broadcast visual content efficiently. Supports real-time synchronization across devices, batch processing for large media libraries, and CDN integration for fast global delivery.',
     technologies: ['Flutter', 'Dart', 'REST API', 'Firebase', 'Cloud Storage', 'Provider'],
     highlights: ['Real-time synchronization across devices', 'Batch processing for large media libraries', 'Analytics dashboard with insights', 'CDN integration for global delivery', 'Metadata management system', 'Automated image optimization'],
     link: '#'
   },
   {
-    id: 'ailogger',
-    title: 'AI Logger',
-    shortDescription: 'Intelligent logging system with AI-powered insights.',
-    description: 'An intelligent application logging system that uses AI to analyze logs, detect anomalies, and provide actionable insights. Helps development teams quickly identify and resolve issues in production.',
-    technologies: ['.NET 6', 'C#', 'Machine Learning', 'SQL Server', 'Angular', 'SignalR'],
-    highlights: ['AI-powered anomaly detection', 'Real-time log streaming', 'Custom dashboard builder', 'Alert system with Slack/Teams integration', 'Log search and filtering', 'Performance metrics visualization'],
+    id: 'voicerecognition',
+    title: 'Voice Recognition',
+    shortDescription: 'Real-time speaker recognition and audio analysis machine learning application.',
+    description: 'A machine learning application capable of real-time speaker recognition and audio analysis. Records audio through an easy-to-use interface, performs identity detection, and displays detailed analysis results. Implements deep learning and Random Forest algorithms for high-accuracy identification.',
+    technologies: ['Python', 'Deep Learning', 'Random Forest', 'NumPy', 'Scikit-learn', 'Jupyter Notebook', 'Artificial Intelligence'],
+    highlights: ['Real-time speaker recognition', 'Audio feature extraction', 'Deep learning model integration', 'Interactive Jupyter interface', 'Identity detection pipeline', 'High accuracy with ensemble methods'],
+    link: 'https://github.com/sebahattinn/Voice-Recognition'
+  },
+  {
+    id: 'earthquakealert',
+    title: 'Flutter EarthquakeAlert',
+    shortDescription: 'Flutter app that warns users before and during earthquakes to raise seismic awareness.',
+    description: 'A Flutter application designed to raise earthquake awareness by providing real-time alerts and warnings before and during seismic events. Aims to help users prepare for and respond to earthquakes through timely notifications and educational content.',
+    technologies: ['Flutter', 'Dart', 'Android Studio', 'Mobile Development', 'Push Notifications'],
+    highlights: ['Real-time earthquake alerts', 'Pre-earthquake warning system', 'Awareness-focused UX', 'Cross-platform (Android/iOS)', 'Push notification integration', 'Educational content for preparedness'],
     link: '#'
   },
   {
-    id: 'taskflow',
-    title: 'TaskFlow',
-    shortDescription: 'Project management app with real-time collaboration.',
-    description: 'A modern project management application with real-time collaboration features. Built with Flutter for mobile and .NET Core for backend, featuring kanban boards, Gantt charts, and team communication tools.',
-    technologies: ['Flutter', 'Dart', '.NET Core', 'SignalR', 'PostgreSQL', 'Firebase Cloud Messaging'],
-    highlights: ['Real-time collaboration with SignalR', 'Kanban and Gantt views', 'Team chat integration', 'File attachments with cloud storage', 'Time tracking and reporting', 'Custom workflow automation'],
-    link: '#'
-  },
-  {
-    id: 'weatherapp',
-    title: 'WeatherNow',
-    shortDescription: 'Beautiful weather app with AI-powered forecasts.',
-    description: 'A visually stunning weather application that provides accurate forecasts with beautiful animations. Features AI-powered hourly predictions and severe weather alerts.',
-    technologies: ['Flutter', 'Dart', 'BLoC', 'OpenWeatherMap API', 'Google ML Kit', 'Location Services'],
-    highlights: ['AI-powered weather predictions', 'Beautiful weather animations', 'Hourly and weekly forecasts', 'Severe weather alerts', 'Location-based updates', 'Offline mode support'],
-    link: '#'
+    id: 'flowersepetim',
+    title: 'FlowerSepetim',
+    shortDescription: 'Test project implementing Clean Architecture principles with Vue.js frontend.',
+    description: 'A personal test project built to practice and demonstrate Clean Architecture principles in a Vue-based frontend application. Serves as a sandbox for exploring architectural patterns, component design, and scalable project structures.',
+    technologies: ['Vue.js', 'JavaScript', 'Clean Architecture', 'Component Design', 'Frontend Architecture'],
+    highlights: ['Clean Architecture implementation', 'Component-based design', 'Scalable folder structure', 'Vue Composition API', 'Separation of concerns', 'Architectural pattern exploration'],
+    link: 'https://github.com/sebahattinn/FlowerSepetim'
   }
 ];
 ---
