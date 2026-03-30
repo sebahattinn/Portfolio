@@ -1,4 +1,6 @@
 ---
+import LanguageToggle from '../ui/LanguageToggle.astro';
+
 interface Props {
   siteTitle?: string;
 }
@@ -13,23 +15,27 @@ const currentPath = Astro.url.pathname;
       {siteTitle}
     </a>
     
-    <nav class="header__nav">
-      <a href="/" class:list={['header__link', { 'header__link--active': currentPath === '/' }]}>
-        Home
-      </a>
-      <a href="/about" class:list={['header__link', { 'header__link--active': currentPath === '/about' }]}>
-        About
-      </a>
-      <a href="/tech" class:list={['header__link', { 'header__link--active': currentPath === '/tech' }]}>
-        Tech Stack
-      </a>
-      <a href="/experience" class:list={['header__link', { 'header__link--active': currentPath === '/experience' }]}>
-        Experience
-      </a>
-      <a href="/projects" class:list={['header__link', { 'header__link--active': currentPath === '/projects' }]}>
-        Projects
-      </a>
-    </nav>
+    <div class="header__right">
+      <nav class="header__nav">
+        <a href="/" class:list={['header__link', { 'header__link--active': currentPath === '/' }]} data-i18n="home">
+          Home
+        </a>
+        <a href="/about" class:list={['header__link', { 'header__link--active': currentPath === '/about' }]} data-i18n="about">
+          About
+        </a>
+        <a href="/tech" class:list={['header__link', { 'header__link--active': currentPath === '/tech' }]} data-i18n="techStack">
+          Tech Stack
+        </a>
+        <a href="/experience" class:list={['header__link', { 'header__link--active': currentPath === '/experience' }]} data-i18n="experience">
+          Experience
+        </a>
+        <a href="/projects" class:list={['header__link', { 'header__link--active': currentPath === '/projects' }]} data-i18n="projects">
+          Projects
+        </a>
+      </nav>
+      
+      <LanguageToggle />
+    </div>
   </div>
 </header>
 
@@ -59,6 +65,12 @@ const currentPath = Astro.url.pathname;
     color: var(--color-text-primary);
     text-decoration: none;
     letter-spacing: -0.02em;
+  }
+
+  .header__right {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-6);
   }
 
   .header__nav {

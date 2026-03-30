@@ -1,0 +1,13 @@
+{
+  "nav": {
+    "home": "Ana Sayfa",
+    "about": "Hakkında",
+    "techStack": "Teknolojiler",
+    "experience": "Deneyim",
+    "projects": "Projeler"
+  },
+  "footer": {
+    "builtWith": "Astro ile yapıldı",
+    "rights": "Tüm hakları saklıdır"
+  }
+}

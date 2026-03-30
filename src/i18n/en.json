@@ -1,0 +1,13 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "techStack": "Tech Stack",
+    "experience": "Experience",
+    "projects": "Projects"
+  },
+  "footer": {
+    "builtWith": "Built with Astro",
+    "rights": "All rights reserved"
+  }
+}
