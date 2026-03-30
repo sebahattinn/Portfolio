@@ -1,0 +1,94 @@
+---
+interface Props {
+  siteTitle?: string;
+}
+
+const { siteTitle = 'SeboTech' } = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+<header class="header">
+  <div class="header__container container">
+    <a href="/" class="header__logo">
+      {siteTitle}
+    </a>
+    
+    <nav class="header__nav">
+      <a href="/" class:list={['header__link', { 'header__link--active': currentPath === '/' }]}>
+        Home
+      </a>
+      <a href="/about" class:list={['header__link', { 'header__link--active': currentPath === '/about' }]}>
+        About
+      </a>
+      <a href="/tech" class:list={['header__link', { 'header__link--active': currentPath === '/tech' }]}>
+        Tech Stack
+      </a>
+      <a href="/experience" class:list={['header__link', { 'header__link--active': currentPath === '/experience' }]}>
+        Experience
+      </a>
+      <a href="/projects" class:list={['header__link', { 'header__link--active': currentPath === '/projects' }]}>
+        Projects
+      </a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--header-height);
+    background-color: rgba(10, 10, 10, 0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+    z-index: 100;
+  }
+
+  .header__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .header__logo {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+
+  .header__nav {
+    display: flex;
+    gap: var(--spacing-6);
+  }
+
+  .header__link {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .header__link:hover {
+    color: var(--color-text-primary);
+  }
+
+  .header__link--active {
+    color: var(--color-text-primary);
+  }
+
+  @media (max-width: 768px) {
+    .header__nav {
+      gap: var(--spacing-4);
+    }
+
+    .header__link {
+      font-size: var(--font-size-xs);
+    }
+  }
+</style>

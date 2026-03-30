@@ -1,0 +1,74 @@
+---
+interface Props {
+  copyright?: string;
+}
+
+const { copyright = 'SeboTech' } = Astro.props;
+---
+
+<footer class="footer">
+  <div class="footer__container container">
+    <div class="footer__content">
+      <p class="footer__copyright">
+        {copyright}
+      </p>
+      
+      <nav class="footer__nav">
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="footer__link">
+          GitHub
+        </a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer__link">
+          LinkedIn
+        </a>
+        <a href="mailto:contact@example.com" class="footer__link">
+          Contact
+        </a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    height: var(--footer-height);
+    background-color: var(--color-bg-secondary);
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+  }
+
+  .footer__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .footer__copyright {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-tertiary);
+  }
+
+  .footer__nav {
+    display: flex;
+    gap: var(--spacing-6);
+  }
+
+  .footer__link {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .footer__link:hover {
+    color: var(--color-text-primary);
+  }
+
+  @media (max-width: 640px) {
+    .footer__content {
+      flex-direction: column;
+      gap: var(--spacing-4);
+    }
+  }
+</style>

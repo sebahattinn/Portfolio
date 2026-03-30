@@ -1,0 +1,166 @@
+---
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Button from '../components/ui/Button.astro';
+import Card from '../components/ui/Card.astro';
+import '../styles/global.css';
+
+const title = 'About - SeboTech';
+const description = 'Learn about the background and experience of a Full-Stack Software Engineer.';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Header siteTitle="SeboTech" />
+    
+    <main class="main">
+      <section class="about">
+        <div class="container container--narrow">
+          <h1 class="page-title">About</h1>
+          
+          <div class="about__content">
+            <Card variant="bordered" padding="lg">
+              <h2 class="section-heading">Background</h2>
+              <p class="text">
+                A dedicated software engineer with a passion for building robust, scalable applications. 
+                Specializing in enterprise solutions with .NET and cross-platform mobile development with Flutter.
+              </p>
+              <p class="text">
+                Focused on Clean Code principles, test-driven development, and delivering high-quality 
+                software that makes a real impact.
+              </p>
+            </Card>
+
+            <Card variant="bordered" padding="lg">
+              <h2 class="section-heading">Expertise</h2>
+              <ul class="expertise-list">
+                <li>Full-Stack Development</li>
+                <li>API Design and Integration</li>
+                <li>Database Architecture</li>
+                <li>Cross-Platform Mobile Development</li>
+                <li>Cloud Infrastructure</li>
+              </ul>
+            </Card>
+
+            <Card variant="bordered" padding="lg">
+              <h2 class="section-heading">Values</h2>
+              <ul class="values-list">
+                <li>
+                  <strong>Quality First</strong> - Writing clean, maintainable code that stands the test of time.
+                </li>
+                <li>
+                  <strong>Continuous Learning</strong> - Staying current with emerging technologies and best practices.
+                </li>
+                <li>
+                  <strong>User Focus</strong> - Building solutions that solve real problems for real users.
+                </li>
+              </ul>
+            </Card>
+          </div>
+
+          <div class="cta">
+            <Button href="/contact" variant="primary">
+              Get in Touch
+            </Button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .main {
+    padding-top: var(--header-height);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about {
+    padding: var(--spacing-16) 0;
+    flex: 1;
+  }
+
+  .page-title {
+    font-size: var(--font-size-4xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-8);
+  }
+
+  .about__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-6);
+  }
+
+  .section-heading {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-4);
+  }
+
+  .text {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-4);
+  }
+
+  .text:last-child {
+    margin-bottom: 0;
+  }
+
+  .expertise-list,
+  .values-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+  }
+
+  .expertise-list li {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    padding-left: var(--spacing-5);
+    position: relative;
+  }
+
+  .expertise-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-accent);
+    border-radius: 50%;
+  }
+
+  .values-list li {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+  }
+
+  .values-list strong {
+    color: var(--color-text-primary);
+  }
+
+  .cta {
+    margin-top: var(--spacing-8);
+    display: flex;
+    justify-content: center;
+  }
+</style>

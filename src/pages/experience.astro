@@ -1,0 +1,204 @@
+---
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Card from '../components/ui/Card.astro';
+import '../styles/global.css';
+
+const title = 'Experience - SeboTech';
+const description = 'Professional work history and career progression.';
+
+const experiences = [
+  {
+    title: 'Senior Software Engineer',
+    company: 'Enterprise Solutions Inc.',
+    period: '2022 - Present',
+    description: 'Leading development of enterprise web applications using .NET Core and React. Architecting scalable microservices and mentoring junior developers.',
+    highlights: [
+      'Designed and implemented microservices architecture',
+      'Reduced API response times by 40%',
+      'Led team of 4 developers'
+    ]
+  },
+  {
+    title: 'Software Engineer',
+    company: 'Tech Innovations Ltd.',
+    period: '2019 - 2022',
+    description: 'Developed cross-platform mobile applications using Flutter. Integrated RESTful APIs and implemented offline-first architecture.',
+    highlights: [
+      'Shipped 3 mobile apps with 100k+ downloads',
+      'Implemented offline sync functionality',
+      'Established Flutter development guidelines'
+    ]
+  },
+  {
+    title: 'Junior Developer',
+    company: 'StartUp Labs',
+    period: '2017 - 2019',
+    description: 'Built web applications using C# and ASP.NET MVC. Learned core software engineering principles and agile methodologies.',
+    highlights: [
+      'Contributed to e-commerce platform',
+      'Automated testing coverage from 0 to 80%',
+      'Participated in agile sprints'
+    ]
+  }
+];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Header siteTitle="SeboTech" />
+    
+    <main class="main">
+      <section class="experience">
+        <div class="container container--narrow">
+          <h1 class="page-title">Experience</h1>
+          
+          <div class="timeline">
+            {experiences.map((exp, index) => (
+              <Card variant="bordered" padding="lg" class="timeline-item">
+                <div class="timeline-header">
+                  <div class="timeline-marker"></div>
+                  <div class="timeline-info">
+                    <h2 class="job-title">{exp.title}</h2>
+                    <p class="job-company">{exp.company}</p>
+                    <p class="job-period">{exp.period}</p>
+                  </div>
+                </div>
+                <p class="job-description">{exp.description}</p>
+                <ul class="job-highlights">
+                  {exp.highlights.map(highlight => (
+                    <li>{highlight}</li>
+                  ))}
+                </ul>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .main {
+    padding-top: var(--header-height);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .experience {
+    padding: var(--spacing-16) 0;
+    flex: 1;
+  }
+
+  .page-title {
+    font-size: var(--font-size-4xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-8);
+  }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-6);
+    position: relative;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--color-border);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-left: var(--spacing-6);
+  }
+
+  .timeline-header {
+    display: flex;
+    gap: var(--spacing-4);
+    margin-bottom: var(--spacing-4);
+  }
+
+  .timeline-marker {
+    position: absolute;
+    left: calc(-1 * var(--spacing-6) - 1px);
+    top: 6px;
+    width: 16px;
+    height: 16px;
+    background-color: var(--color-accent);
+    border-radius: 50%;
+    border: 3px solid var(--color-bg-secondary);
+  }
+
+  .timeline-info {
+    flex: 1;
+  }
+
+  .job-title {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-1);
+  }
+
+  .job-company {
+    font-size: var(--font-size-base);
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-1);
+  }
+
+  .job-period {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-tertiary);
+  }
+
+  .job-description {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-4);
+  }
+
+  .job-highlights {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+  }
+
+  .job-highlights li {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    padding-left: var(--spacing-5);
+    position: relative;
+  }
+
+  .job-highlights li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 4px;
+    height: 4px;
+    background-color: var(--color-accent);
+    border-radius: 50%;
+  }
+</style>

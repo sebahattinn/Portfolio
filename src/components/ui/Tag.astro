@@ -1,0 +1,37 @@
+---
+interface Props {
+  name: string;
+  href?: string;
+  class?: string;
+}
+
+const { name, href, class: className = '' } = Astro.props;
+const Tag = href ? 'a' : 'span';
+---
+
+<Tag href={href} class:list={['tag', className]}>
+  <slot name="icon" />
+  {name}
+</Tag>
+
+<style>
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-1);
+    padding: var(--spacing-1) var(--spacing-3);
+    background-color: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+  }
+
+  a.tag:hover {
+    background-color: var(--color-bg-elevated);
+    border-color: var(--color-border-hover);
+    color: var(--color-text-primary);
+  }
+</style>

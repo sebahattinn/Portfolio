@@ -1,17 +1,188 @@
 ---
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Button from '../components/ui/Button.astro';
+import Card from '../components/ui/Card.astro';
+import '../styles/global.css';
 
+const title = 'SeboTech - Full-Stack Software Engineer';
+const description = 'Premium portfolio of a Full-Stack Software Engineer specializing in .NET and Flutter development.';
 ---
 
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Header siteTitle="SeboTech" />
+    
+    <main class="main">
+      <section class="hero">
+        <div class="container">
+          <h1 class="hero__title">
+            Full-Stack Software Engineer
+          </h1>
+          <p class="hero__subtitle">
+            Building elegant solutions with .NET and Flutter
+          </p>
+          <div class="hero__actions">
+            <Button href="/projects" variant="primary" size="lg">
+              View Projects
+            </Button>
+            <Button href="/about" variant="secondary" size="lg">
+              Learn More
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <section class="featured">
+        <div class="container">
+          <h2 class="section-title">Featured Projects</h2>
+          <div class="featured__grid">
+            <Card variant="bordered" padding="md">
+              <h3 class="card-title">E-paraf</h3>
+              <p class="card-description">
+                Digital signature platform for secure document workflows.
+              </p>
+              <div class="card-tags">
+                <span class="tag">C#</span>
+                <span class="tag">.NET Core</span>
+                <span class="tag">PostgreSQL</span>
+              </div>
+            </Card>
+            
+            <Card variant="bordered" padding="md">
+              <h3 class="card-title">Digital Will</h3>
+              <p class="card-description">
+                Secure digital estate planning and asset management.
+              </p>
+              <div class="card-tags">
+                <span class="tag">Flutter</span>
+                <span class="tag">Firebase</span>
+              </div>
+            </Card>
+            
+            <Card variant="bordered" padding="md">
+              <h3 class="card-title">ImageBroadcast</h3>
+              <p class="card-description">
+                Multi-platform image distribution and management system.
+              </p>
+              <div class="card-tags">
+                <span class="tag">Flutter</span>
+                <span class="tag">REST API</span>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <Footer copyright="SeboTech" />
+  </body>
 </html>
+
+<style>
+  .main {
+    padding-top: var(--header-height);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero {
+    padding: var(--spacing-24) 0;
+    text-align: center;
+  }
+
+  .hero__title {
+    font-size: var(--font-size-5xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-4);
+    letter-spacing: -0.02em;
+  }
+
+  .hero__subtitle {
+    font-size: var(--font-size-xl);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-8);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero__actions {
+    display: flex;
+    gap: var(--spacing-4);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .featured {
+    padding: var(--spacing-16) 0;
+    background-color: var(--color-bg-secondary);
+  }
+
+  .section-title {
+    font-size: var(--font-size-2xl);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-8);
+    text-align: center;
+  }
+
+  .featured__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-6);
+  }
+
+  .card-title {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-2);
+  }
+
+  .card-description {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-4);
+  }
+
+  .card-tags {
+    display: flex;
+    gap: var(--spacing-2);
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: var(--spacing-1) var(--spacing-2);
+    background-color: var(--color-bg-tertiary);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-xs);
+    color: var(--color-text-tertiary);
+  }
+
+  @media (max-width: 640px) {
+    .hero {
+      padding: var(--spacing-16) 0;
+    }
+
+    .hero__title {
+      font-size: var(--font-size-3xl);
+    }
+
+    .hero__subtitle {
+      font-size: var(--font-size-base);
+    }
+  }
+</style>
