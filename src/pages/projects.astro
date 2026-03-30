@@ -12,27 +12,54 @@ const projects = [
     id: 'eparaf',
     title: 'E-paraf',
     shortDescription: 'Digital signature platform for secure document workflows.',
-    description: 'A comprehensive digital signature platform enabling secure document workflows and legally binding electronic signatures for businesses. Built with enterprise-grade security and compliance in mind.',
-    technologies: ['C#', '.NET Core', 'PostgreSQL', 'Azure'],
-    highlights: ['Bank-grade security', 'Multi-language support', 'API integration', 'Real-time notifications', 'Audit logging'],
+    description: 'A comprehensive digital signature platform enabling secure document workflows and legally binding electronic signatures for businesses. Built with enterprise-grade security and compliance in mind. The platform handles thousands of documents daily with bank-grade encryption and provides a seamless API for enterprise integration.',
+    technologies: ['C#', '.NET Core', 'PostgreSQL', 'Azure', 'Entity Framework', 'REST API', 'OAuth 2.0'],
+    highlights: ['Bank-grade security with AES-256 encryption', 'Multi-language support (TR/EN)', 'RESTful API for enterprise integration', 'Real-time notifications via SignalR', 'Comprehensive audit logging', 'e-İmza integration'],
     link: '#'
   },
   {
     id: 'digitalwill',
     title: 'Digital Will',
-    shortDescription: 'Secure digital estate planning platform.',
-    description: 'A secure digital estate planning platform for managing and transferring digital assets after life events. Features end-to-end encryption and legal compliance across multiple jurisdictions.',
-    technologies: ['Flutter', 'Firebase', 'Node.js'],
-    highlights: ['End-to-end encryption', 'Mobile-first design', 'Legal compliance', 'Asset inventory', 'Beneficiary management'],
+    shortDescription: 'Secure digital estate planning and asset management.',
+    description: 'A secure digital estate planning platform for managing and transferring digital assets after life events. Features end-to-end encryption and legal compliance across multiple jurisdictions. Users can securely store passwords, cryptocurrency keys, social media accounts, and important documents.',
+    technologies: ['Flutter', 'Firebase', 'Dart', 'BLoC', 'Firebase Auth', 'Cloud Firestore'],
+    highlights: ['End-to-end encryption (AES-256 + RSA)', 'Mobile-first responsive design', 'Legal compliance (GDPR, KVKK)', 'Digital asset inventory management', 'Beneficiary management system', 'Secure document storage'],
     link: '#'
   },
   {
     id: 'imagebroadcast',
     title: 'ImageBroadcast',
-    shortDescription: 'Multi-platform image distribution system.',
-    description: 'A multi-platform image distribution system for media companies to manage and broadcast visual content efficiently. Supports real-time synchronization and batch processing.',
-    technologies: ['Flutter', 'REST API', 'Cloud Storage'],
-    highlights: ['Real-time sync', 'Batch processing', 'Analytics dashboard', 'CDN integration', 'Metadata management'],
+    shortDescription: 'Multi-platform image distribution and management system.',
+    description: 'A multi-platform image distribution system for media companies to manage and broadcast visual content efficiently. Supports real-time synchronization, batch processing, and CDN integration for fast global delivery.',
+    technologies: ['Flutter', 'Dart', 'REST API', 'Firebase', 'Cloud Storage', 'Provider'],
+    highlights: ['Real-time synchronization across devices', 'Batch processing for large media libraries', 'Analytics dashboard with insights', 'CDN integration for global delivery', 'Metadata management system', 'Automated image optimization'],
+    link: '#'
+  },
+  {
+    id: 'ailogger',
+    title: 'AI Logger',
+    shortDescription: 'Intelligent logging system with AI-powered insights.',
+    description: 'An intelligent application logging system that uses AI to analyze logs, detect anomalies, and provide actionable insights. Helps development teams quickly identify and resolve issues in production.',
+    technologies: ['.NET 6', 'C#', 'Machine Learning', 'SQL Server', 'Angular', 'SignalR'],
+    highlights: ['AI-powered anomaly detection', 'Real-time log streaming', 'Custom dashboard builder', 'Alert system with Slack/Teams integration', 'Log search and filtering', 'Performance metrics visualization'],
+    link: '#'
+  },
+  {
+    id: 'taskflow',
+    title: 'TaskFlow',
+    shortDescription: 'Project management app with real-time collaboration.',
+    description: 'A modern project management application with real-time collaboration features. Built with Flutter for mobile and .NET Core for backend, featuring kanban boards, Gantt charts, and team communication tools.',
+    technologies: ['Flutter', 'Dart', '.NET Core', 'SignalR', 'PostgreSQL', 'Firebase Cloud Messaging'],
+    highlights: ['Real-time collaboration with SignalR', 'Kanban and Gantt views', 'Team chat integration', 'File attachments with cloud storage', 'Time tracking and reporting', 'Custom workflow automation'],
+    link: '#'
+  },
+  {
+    id: 'weatherapp',
+    title: 'WeatherNow',
+    shortDescription: 'Beautiful weather app with AI-powered forecasts.',
+    description: 'A visually stunning weather application that provides accurate forecasts with beautiful animations. Features AI-powered hourly predictions and severe weather alerts.',
+    technologies: ['Flutter', 'Dart', 'BLoC', 'OpenWeatherMap API', 'Google ML Kit', 'Location Services'],
+    highlights: ['AI-powered weather predictions', 'Beautiful weather animations', 'Hourly and weekly forecasts', 'Severe weather alerts', 'Location-based updates', 'Offline mode support'],
     link: '#'
   }
 ];

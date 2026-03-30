@@ -28,24 +28,84 @@ const description = 'Premium portfolio of a Full-Stack Software Engineer special
         }
         document.body.classList.add('crt-effect');
       })();
+
+      (function() {
+        const chars = '.·:;*#@';
+        const cols = 80;
+        const rows = 40;
+        let asciiEl = document.querySelector('.ascii-particles');
+        if (!asciiEl) return;
+        
+        let matrix = [];
+        for (let i = 0; i < rows; i++) {
+          matrix[i] = [];
+          for (let j = 0; j < cols; j++) {
+            matrix[i][j] = chars[Math.floor(Math.random() * chars.length)];
+          }
+        }
+        
+        function render() {
+          let output = '';
+          for (let i = 0; i < rows; i++) {
+            output += matrix[i].join('') + '\n';
+          }
+          asciiEl.textContent = output;
+        }
+        
+        render();
+      })();
     </script>
   </head>
-  <body>
+  <body class="terminal-body">
     <Header siteTitle="Sebahattin" />
     
+    <div class="terminal-overlay"></div>
+    <div class="ascii-bg">
+      <pre class="ascii-particles"></pre>
+    </div>
     <main class="main">
       <section class="hero">
         <div class="container">
-          <h1 class="hero__title animate-fade-in" data-i18n="index.heroTitle" style="animation-delay: 0.1s;">
+          <div class="terminal-window">
+            <div class="terminal-header">
+              <span class="terminal-dot terminal-dot--red"></span>
+              <span class="terminal-dot terminal-dot--yellow"></span>
+              <span class="terminal-dot terminal-dot--green"></span>
+              <span class="terminal-title">sebahattin@portfolio ~</span>
+            </div>
+            <div class="terminal-content">
+              <p class="terminal-line">
+                <span class="terminal-prompt">$</span>
+                <span class="terminal-command typing-effect" data-text="whoami"></span>
+              </p>
+              <p class="terminal-output">Sebahattin — Full-Stack Software Engineer</p>
+              <p class="terminal-line">
+                <span class="terminal-prompt">$</span>
+                <span class="terminal-command typing-effect" data-text="cat skills.txt" style="animation-delay: 0.5s;"></span>
+              </p>
+              <p class="terminal-output">.NET • Flutter • AI Integration • Cross-Platform Development</p>
+              <p class="terminal-line">
+                <span class="terminal-prompt">$</span>
+                <span class="terminal-command typing-effect" data-text="echo $STATUS" style="animation-delay: 1s;"></span>
+              </p>
+              <p class="terminal-output terminal-output--highlight">Ready to build something amazing.</p>
+              <p class="terminal-cursor-line">
+                <span class="terminal-prompt">$</span>
+                <span class="terminal-blink">_</span>
+              </p>
+            </div>
+          </div>
+          
+          <h1 class="hero__title animate-fade-in" data-i18n="index.heroTitle" style="animation-delay: 0.1s; display: none;">
             Full-Stack Software Engineer
           </h1>
-          <p class="hero__subtitle animate-fade-in" data-i18n="index.heroSubtitle" style="animation-delay: 0.3s;">
+          <p class="hero__subtitle animate-fade-in" data-i18n="index.heroSubtitle" style="animation-delay: 0.3s; display: none;">
             Building elegant solutions with .NET and Flutter
           </p>
-          <p class="hero__tagline animate-fade-in" data-i18n="index.heroTagline" style="animation-delay: 0.4s; color: var(--color-text-tertiary); font-size: var(--font-size-sm); margin-bottom: var(--spacing-6);">
+          <p class="hero__tagline animate-fade-in" data-i18n="index.heroTagline" style="animation-delay: 0.4s; color: var(--color-text-tertiary); font-size: var(--font-size-sm); margin-bottom: var(--spacing-6); display: none;">
             Problem Solver | AI Integration Specialist | Cross-Platform Developer
           </p>
-          <div class="hero__actions animate-fade-in" style="animation-delay: 0.5s;">
+          <div class="hero__actions animate-fade-in" style="animation-delay: 2s;">
             <Button href="/Portfolio/projects" variant="primary" size="lg">
               <span data-i18n="index.viewProjects">View Projects</span>
             </Button>
@@ -63,34 +123,37 @@ const description = 'Premium portfolio of a Full-Stack Software Engineer special
             <Card variant="bordered" padding="md">
               <h3 class="card-title">E-paraf</h3>
               <p class="card-description">
-                Digital signature platform for secure document workflows.
+                Enterprise digital signature platform with bank-grade security.
               </p>
               <div class="card-tags">
                 <span class="tag">C#</span>
                 <span class="tag">.NET Core</span>
                 <span class="tag">PostgreSQL</span>
+                <span class="tag">Azure</span>
               </div>
             </Card>
             
             <Card variant="bordered" padding="md">
               <h3 class="card-title">Digital Will</h3>
               <p class="card-description">
-                Secure digital estate planning and asset management.
+                Secure digital estate planning with end-to-end encryption.
               </p>
               <div class="card-tags">
                 <span class="tag">Flutter</span>
                 <span class="tag">Firebase</span>
+                <span class="tag">BLoC</span>
               </div>
             </Card>
             
             <Card variant="bordered" padding="md">
-              <h3 class="card-title">ImageBroadcast</h3>
+              <h3 class="card-title">TaskFlow</h3>
               <p class="card-description">
-                Multi-platform image distribution and management system.
+                Real-time project management with collaboration tools.
               </p>
               <div class="card-tags">
                 <span class="tag">Flutter</span>
-                <span class="tag">REST API</span>
+                <span class="tag">.NET Core</span>
+                <span class="tag">SignalR</span>
               </div>
             </Card>
           </div>
@@ -103,6 +166,57 @@ const description = 'Premium portfolio of a Full-Stack Software Engineer special
 </html>
 
 <style>
+  :global(.terminal-body) {
+    background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
+  }
+
+  :global([data-theme="light"]) .terminal-body {
+    background: linear-gradient(180deg, #f5f5f5 0%, #eee 100%);
+  }
+
+  .terminal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 1000;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.03) 0px,
+      rgba(0, 0, 0, 0.03) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+  }
+
+  .ascii-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.03;
+    overflow: hidden;
+  }
+
+  .ascii-particles {
+    font-family: monospace;
+    font-size: 10px;
+    line-height: 1.2;
+    color: var(--color-text-primary);
+    white-space: pre;
+    animation: float 20s linear infinite;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+  }
+
   .main {
     padding-top: var(--header-height);
     min-height: 100vh;
@@ -113,6 +227,7 @@ const description = 'Premium portfolio of a Full-Stack Software Engineer special
   .hero {
     padding: var(--spacing-24) 0;
     text-align: center;
+    position: relative;
   }
 
   .hero__title {
@@ -137,6 +252,129 @@ const description = 'Premium portfolio of a Full-Stack Software Engineer special
     gap: var(--spacing-4);
     justify-content: center;
     flex-wrap: wrap;
+  }
+
+  .terminal-window {
+    max-width: 600px;
+    margin: 0 auto var(--spacing-12);
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    text-align: left;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 60px rgba(0, 255, 0, 0.05);
+    backdrop-filter: blur(10px);
+  }
+
+  :global([data-theme="light"]) .terminal-window {
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  .terminal-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: var(--spacing-3) var(--spacing-4);
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .terminal-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+
+  .terminal-dot--red { background: #ff5f56; }
+  .terminal-dot--yellow { background: #ffbd2e; }
+  .terminal-dot--green { background: #27c93f; }
+
+  .terminal-title {
+    margin-left: var(--spacing-3);
+    font-family: monospace;
+    font-size: var(--font-size-xs);
+    color: var(--color-text-tertiary);
+  }
+
+  .terminal-content {
+    padding: var(--spacing-4);
+    font-family: 'Courier New', monospace;
+    font-size: var(--font-size-sm);
+  }
+
+  .terminal-line {
+    margin: 0;
+    line-height: 1.8;
+  }
+
+  .terminal-prompt {
+    color: var(--color-accent);
+    margin-right: var(--spacing-2);
+  }
+
+  .terminal-command {
+    color: var(--color-text-primary);
+  }
+
+  .terminal-output {
+    color: var(--color-text-secondary);
+    margin: 0 0 var(--spacing-3) var(--spacing-4);
+    padding-left: var(--spacing-5);
+  }
+
+  .terminal-output--highlight {
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  .terminal-cursor-line {
+    margin: 0;
+  }
+
+  .terminal-blink {
+    color: var(--color-accent);
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .typing-effect {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid var(--color-accent);
+    animation: typing 1.5s steps(20) forwards, blink-caret 0.75s step-end infinite;
+    width: 0;
+    animation-fill-mode: forwards;
+  }
+
+  .typing-effect[data-text="whoami"] {
+    width: 6ch;
+    animation: typing 0.5s steps(6) forwards, blink-caret 0.75s step-end infinite;
+  }
+
+  .typing-effect[data-text="cat skills.txt"] {
+    width: 14ch;
+    animation: typing 0.7s steps(14) forwards, blink-caret 0.75s step-end infinite;
+  }
+
+  .typing-effect[data-text="echo $STATUS"] {
+    width: 12ch;
+    animation: typing 0.6s steps(12) forwards, blink-caret 0.75s step-end infinite;
+  }
+
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--color-accent); }
   }
 
   .featured {
