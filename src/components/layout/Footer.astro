@@ -1,4 +1,6 @@
 ---
+import SocialLinks from '../ui/SocialLinks.astro';
+
 interface Props {
   copyright?: string;
 }
@@ -13,17 +15,7 @@ const { copyright = 'SeboTech' } = Astro.props;
         {copyright} <span data-i18n="rights">All rights reserved</span>
       </p>
       
-      <nav class="footer__nav">
-        <a href="https://github.com/sebahattinn" target="_blank" rel="noopener noreferrer" class="footer__link">
-          GitHub
-        </a>
-        <a href="https://linkedin.com/in/sebahattinn" target="_blank" rel="noopener noreferrer" class="footer__link">
-          LinkedIn
-        </a>
-        <a href="mailto:sebahattin@sebotech.dev" class="footer__link">
-          Contact
-        </a>
-      </nav>
+      <SocialLinks variant="footer" />
     </div>
   </div>
 </footer>
@@ -47,22 +39,6 @@ const { copyright = 'SeboTech' } = Astro.props;
   .footer__copyright {
     font-size: var(--font-size-sm);
     color: var(--color-text-tertiary);
-  }
-
-  .footer__nav {
-    display: flex;
-    gap: var(--spacing-6);
-  }
-
-  .footer__link {
-    font-size: var(--font-size-sm);
-    color: var(--color-text-secondary);
-    text-decoration: none;
-    transition: color var(--transition-fast);
-  }
-
-  .footer__link:hover {
-    color: var(--color-text-primary);
   }
 
   @media (max-width: 640px) {
