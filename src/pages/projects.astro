@@ -1,8 +1,7 @@
 ---
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
-import Card from '../components/ui/Card.astro';
-import Button from '../components/ui/Button.astro';
+import Modal from '../components/ui/Modal.astro';
 import '../styles/global.css';
 
 const title = 'Projects - SeboTech';
@@ -10,24 +9,30 @@ const description = 'Featured projects showcasing software development expertise
 
 const projects = [
   {
+    id: 'eparaf',
     title: 'E-paraf',
-    description: 'Digital signature platform enabling secure document workflows and legally binding electronic signatures for businesses.',
+    shortDescription: 'Digital signature platform for secure document workflows.',
+    description: 'A comprehensive digital signature platform enabling secure document workflows and legally binding electronic signatures for businesses. Built with enterprise-grade security and compliance in mind.',
     technologies: ['C#', '.NET Core', 'PostgreSQL', 'Azure'],
-    highlights: ['Bank-grade security', 'Multi-language support', 'API integration'],
+    highlights: ['Bank-grade security', 'Multi-language support', 'API integration', 'Real-time notifications', 'Audit logging'],
     link: '#'
   },
   {
+    id: 'digitalwill',
     title: 'Digital Will',
-    description: 'Secure digital estate planning platform for managing and transferring digital assets after life events.',
+    shortDescription: 'Secure digital estate planning platform.',
+    description: 'A secure digital estate planning platform for managing and transferring digital assets after life events. Features end-to-end encryption and legal compliance across multiple jurisdictions.',
     technologies: ['Flutter', 'Firebase', 'Node.js'],
-    highlights: ['End-to-end encryption', 'Mobile-first design', 'Legal compliance'],
+    highlights: ['End-to-end encryption', 'Mobile-first design', 'Legal compliance', 'Asset inventory', 'Beneficiary management'],
     link: '#'
   },
   {
+    id: 'imagebroadcast',
     title: 'ImageBroadcast',
-    description: 'Multi-platform image distribution system for media companies to manage and broadcast visual content.',
+    shortDescription: 'Multi-platform image distribution system.',
+    description: 'A multi-platform image distribution system for media companies to manage and broadcast visual content efficiently. Supports real-time synchronization and batch processing.',
     technologies: ['Flutter', 'REST API', 'Cloud Storage'],
-    highlights: ['Real-time sync', 'Batch processing', 'Analytics dashboard'],
+    highlights: ['Real-time sync', 'Batch processing', 'Analytics dashboard', 'CDN integration', 'Metadata management'],
     link: '#'
   }
 ];
@@ -62,9 +67,9 @@ const projects = [
           
           <div class="projects__grid">
             {projects.map(project => (
-              <Card variant="bordered" padding="lg" class="project-card">
+              <button class="project-card" type="button" data-modal-open={`modal-${project.id}`}>
                 <h2 class="project-title">{project.title}</h2>
-                <p class="project-description">{project.description}</p>
+                <p class="project-description">{project.shortDescription}</p>
                 
                 <div class="project-section">
                   <h3 class="section-label">Technologies</h3>
@@ -74,27 +79,42 @@ const projects = [
                     ))}
                   </div>
                 </div>
-                
-                <div class="project-section">
-                  <h3 class="section-label">Highlights</h3>
-                  <ul class="highlights-list">
-                    {project.highlights.map(h => (
-                      <li>{h}</li>
-                    ))}
-                  </ul>
-                </div>
 
-                <div class="project-actions">
-                  <Button href={project.link} variant="secondary" size="sm">
-                    View Details
-                  </Button>
+                <div class="project-card__cta">
+                  <span class="view-details">View Details</span>
                 </div>
-              </Card>
+              </button>
             ))}
           </div>
         </div>
       </section>
     </main>
+
+    {projects.map(project => (
+      <Modal id={`modal-${project.id}`} title={project.title}>
+        <div class="modal-body">
+          <p class="modal-description">{project.description}</p>
+          
+          <div class="modal-section">
+            <h3 class="section-label">Technologies</h3>
+            <div class="tech-tags">
+              {project.technologies.map(tech => (
+                <span class="tech-tag">{tech}</span>
+              ))}
+            </div>
+          </div>
+          
+          <div class="modal-section">
+            <h3 class="section-label">Highlights</h3>
+            <ul class="highlights-list">
+              {project.highlights.map(h => (
+                <li>{h}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </Modal>
+    ))}
 
     <Footer />
   </body>
@@ -131,6 +151,25 @@ const projects = [
     display: flex;
     flex-direction: column;
     height: fit-content;
+    padding: var(--spacing-6);
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    text-align: left;
+    font-family: inherit;
+  }
+
+  .project-card:hover {
+    border-color: var(--color-border-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .project-card:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
   }
 
   .project-title {
@@ -175,6 +214,21 @@ const projects = [
     color: var(--color-text-secondary);
   }
 
+  .project-card__cta {
+    margin-top: auto;
+    padding-top: var(--spacing-4);
+  }
+
+  .view-details {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--color-accent);
+  }
+
+  .project-card:hover .view-details {
+    color: var(--color-accent-hover);
+  }
+
   .highlights-list {
     list-style: none;
     display: flex;
@@ -200,8 +254,19 @@ const projects = [
     border-radius: 50%;
   }
 
-  .project-actions {
-    margin-top: auto;
-    padding-top: var(--spacing-4);
+  .modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-5);
+  }
+
+  .modal-description {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  .modal-section {
+    margin-bottom: var(--spacing-2);
   }
 </style>
