@@ -16,6 +16,16 @@ import '../styles/global.css';
       title="Page Not Found"
       description="The requested page could not be found."
     />
+    <script is:inline>
+      (function() {
+        var theme = localStorage.getItem('sebotech-theme');
+        if (theme === 'light' || theme === 'dark') {
+          document.documentElement.setAttribute('data-theme', theme);
+        } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      })();
+    </script>
   </head>
   <body>
     <Header siteTitle="SeboTech" />
