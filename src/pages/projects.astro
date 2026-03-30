@@ -90,7 +90,7 @@ const projects = [
     <main class="main">
       <section class="projects">
         <div class="container">
-          <h1 class="page-title">Projects</h1>
+          <h1 class="page-title" data-i18n="projects.title">Projects</h1>
           
           <div class="projects__grid">
             {projects.map(project => (
@@ -99,7 +99,7 @@ const projects = [
                 <p class="project-description">{project.shortDescription}</p>
                 
                 <div class="project-section">
-                  <h3 class="section-label">Technologies</h3>
+                  <h3 class="section-label" data-i18n="projects.technologies">Technologies</h3>
                   <div class="tech-tags">
                     {project.technologies.map(tech => (
                       <span class="tech-tag">{tech}</span>
@@ -108,7 +108,7 @@ const projects = [
                 </div>
 
                 <div class="project-card__cta">
-                  <span class="view-details">View Details</span>
+                  <span class="view-details" data-i18n="projects.viewDetails">View Details</span>
                 </div>
               </button>
             ))}
@@ -123,7 +123,7 @@ const projects = [
           <p class="modal-description">{project.description}</p>
           
           <div class="modal-section">
-            <h3 class="section-label">Technologies</h3>
+            <h3 class="section-label" data-i18n="projects.technologies">Technologies</h3>
             <div class="tech-tags">
               {project.technologies.map(tech => (
                 <span class="tech-tag">{tech}</span>
@@ -132,7 +132,7 @@ const projects = [
           </div>
           
           <div class="modal-section">
-            <h3 class="section-label">Highlights</h3>
+            <h3 class="section-label" data-i18n="projects.highlights">Highlights</h3>
             <ul class="highlights-list">
               {project.highlights.map(h => (
                 <li>{h}</li>
@@ -172,12 +172,13 @@ const projects = [
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     gap: var(--spacing-6);
+    align-items: stretch;
   }
 
   .project-card {
     display: flex;
     flex-direction: column;
-    height: fit-content;
+    height: 100%;
     padding: var(--spacing-6);
     background: var(--color-bg-secondary);
     border: 1px solid var(--color-border);

@@ -1,7 +1,6 @@
 ---
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
-import Button from '../components/ui/Button.astro';
 import Card from '../components/ui/Card.astro';
 import '../styles/global.css';
 
@@ -34,54 +33,48 @@ const description = 'Learn about the background and experience of a Full-Stack S
     <main class="main">
       <section class="about">
         <div class="container container--narrow">
-          <h1 class="page-title">About</h1>
-          
+          <h1 class="page-title" data-i18n="about.title">About</h1>
+
           <div class="about__content">
             <Card variant="bordered" padding="lg">
-              <h2 class="section-heading">Background</h2>
-              <p class="text">
+              <h2 class="section-heading" data-i18n="about.background">Background</h2>
+              <p class="text" data-i18n="about.backgroundPara1">
                 Software Engineering graduate from Celal Bayar University (GPA: 3.20/4.00) with B1+ English proficiency.
                 I specialize in building scalable, production-ready enterprise applications using .NET and Flutter.
               </p>
-              <p class="text">
+              <p class="text" data-i18n="about.backgroundPara2">
                 I care deeply about clean code, SOLID principles, and long-term maintainability — not just making things work, but making them right.
                 I've shipped features in production environments, worked within Clean Architecture and DDD patterns, and developed a habit of continuous improvement through code reviews, testing, and refactoring.
               </p>
             </Card>
 
             <Card variant="bordered" padding="lg">
-              <h2 class="section-heading">Expertise</h2>
+              <h2 class="section-heading" data-i18n="about.expertise">Expertise</h2>
               <ul class="expertise-list">
-                <li>Clean Architecture &amp; DDD</li>
-                <li>Backend API Development</li>
-                <li>Cross-Platform Mobile (Flutter)</li>
-                <li>Database Design &amp; Optimization</li>
-                <li>Code Review &amp; Refactoring</li>
-                <li>Test-Driven Development</li>
-                <li>Long-Term System Maintenance</li>
+                <li data-i18n="about.expertise1">Clean Architecture &amp; DDD</li>
+                <li data-i18n="about.expertise2">Backend API Development</li>
+                <li data-i18n="about.expertise3">Cross-Platform Mobile (Flutter)</li>
+                <li data-i18n="about.expertise4">Database Design &amp; Optimization</li>
+                <li data-i18n="about.expertise5">Code Review &amp; Refactoring</li>
+                <li data-i18n="about.expertise6">Test-Driven Development</li>
+                <li data-i18n="about.expertise7">Long-Term System Maintenance</li>
               </ul>
             </Card>
 
             <Card variant="bordered" padding="lg">
-              <h2 class="section-heading">Values</h2>
+              <h2 class="section-heading" data-i18n="about.values">Values</h2>
               <ul class="values-list">
                 <li>
-                  <strong>Quality First</strong> - Writing clean, maintainable, and testable code isn't optional — it's the baseline. I consistently apply SOLID principles and design patterns to keep codebases healthy over time.
+                  <strong data-i18n="about.qualityFirst">Quality First</strong><span data-i18n="about.qualityFirstDesc"> — Writing clean, maintainable, and testable code isn't optional — it's the baseline. I consistently apply SOLID principles and design patterns to keep codebases healthy over time.</span>
                 </li>
                 <li>
-                  <strong>Continuous Improvement</strong> - I actively participate in code reviews, write unit and integration tests, and regularly refactor to improve system quality. Learning is a daily habit, not an occasional event.
+                  <strong data-i18n="about.continuousImprovement">Continuous Improvement</strong><span data-i18n="about.continuousImprovementDesc"> — I actively participate in code reviews, write unit and integration tests, and regularly refactor to improve system quality. Learning is a daily habit, not an occasional event.</span>
                 </li>
                 <li>
-                  <strong>Production Mindset</strong> - I build with production in mind: observability, error handling, performance, and scalability. Features aren't done until they're deployed and running reliably.
+                  <strong data-i18n="about.productionMindset">Production Mindset</strong><span data-i18n="about.productionMindsetDesc"> — I build with production in mind: observability, error handling, performance, and scalability. Features aren't done until they're deployed and running reliably.</span>
                 </li>
               </ul>
             </Card>
-          </div>
-
-          <div class="cta">
-            <Button href="/contact" variant="primary">
-              Get in Touch
-            </Button>
           </div>
         </div>
       </section>

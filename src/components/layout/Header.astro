@@ -22,19 +22,19 @@ const currentPath = Astro.url.pathname.replace(/^\/Portfolio/, '') || '/';
     
     <div class="header__right">
       <nav class="header__nav">
-        <a href="/Portfolio/" class:list={['header__link', { 'header__link--active': currentPath === '/' }]} data-i18n="home">
+        <a href="/Portfolio/" class:list={['header__link', { 'header__link--active': currentPath === '/' }]} data-i18n="nav.home">
           Home
         </a>
-        <a href="/Portfolio/about" class:list={['header__link', { 'header__link--active': currentPath === '/about' }]} data-i18n="about">
+        <a href="/Portfolio/about" class:list={['header__link', { 'header__link--active': currentPath === '/about' }]} data-i18n="nav.about">
           About
         </a>
-        <a href="/Portfolio/tech" class:list={['header__link', { 'header__link--active': currentPath === '/tech' }]} data-i18n="techStack">
+        <a href="/Portfolio/tech" class:list={['header__link', { 'header__link--active': currentPath === '/tech' }]} data-i18n="nav.techStack">
           Tech Stack
         </a>
-        <a href="/Portfolio/experience" class:list={['header__link', { 'header__link--active': currentPath === '/experience' }]} data-i18n="experience">
+        <a href="/Portfolio/experience" class:list={['header__link', { 'header__link--active': currentPath === '/experience' }]} data-i18n="nav.experience">
           Experience
         </a>
-        <a href="/Portfolio/projects" class:list={['header__link', { 'header__link--active': currentPath === '/projects' }]} data-i18n="projects">
+        <a href="/Portfolio/projects" class:list={['header__link', { 'header__link--active': currentPath === '/projects' }]} data-i18n="nav.projects">
           Projects
         </a>
       </nav>

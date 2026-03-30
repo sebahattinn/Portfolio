@@ -2,21 +2,28 @@
 import { languages, defaultLanguage } from '../../i18n';
 ---
 
-<div class="lang-toggle" id="lang-toggle">
-  {Object.entries(languages).map(([code, label]) => (
-    <button
-      class:list={['lang-toggle__btn', { 'lang-toggle__btn--active': defaultLanguage === code }]}
-      data-lang={code}
-      type="button"
-    >
-      {label}
+<div class="lang-dropdown" id="lang-dropdown">
+  <button class="lang-dropdown__trigger" type="button" id="lang-trigger" aria-haspopup="listbox" aria-expanded="false">
+    <span class="lang-dropdown__current" id="lang-current">EN</span>
+    <svg class="lang-dropdown__chevron" width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+      <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <div class="lang-dropdown__menu" id="lang-menu" role="listbox">
+    <button class="lang-dropdown__option" data-lang="en" type="button" role="option">
+      <span class="lang-dropdown__code">EN</span>
+      <span class="lang-dropdown__label">English</span>
     </button>
-  ))}
+    <button class="lang-dropdown__option" data-lang="tr" type="button" role="option">
+      <span class="lang-dropdown__code">TR</span>
+      <span class="lang-dropdown__label">Türkçe</span>
+    </button>
+  </div>
 </div>
 
 <script>
   type Language = 'en' | 'tr';
-  
+
   const translations: Record<Language, Record<string, any>> = {
     en: {
       nav: {
@@ -41,17 +48,23 @@ import { languages, defaultLanguage } from '../../i18n';
       about: {
         title: 'About',
         background: 'Background',
-        backgroundText: 'A dedicated software engineer with a passion for building robust, scalable applications. Specializing in enterprise solutions with .NET and cross-platform mobile development with Flutter. Focused on Clean Code principles, test-driven development, and delivering high-quality software that makes a real impact.',
+        backgroundPara1: 'Software Engineering graduate from Celal Bayar University (GPA: 3.20/4.00) with B1+ English proficiency. I specialize in building scalable, production-ready enterprise applications using .NET and Flutter.',
+        backgroundPara2: 'I care deeply about clean code, SOLID principles, and long-term maintainability — not just making things work, but making them right. I\'ve shipped features in production environments, worked within Clean Architecture and DDD patterns, and developed a habit of continuous improvement through code reviews, testing, and refactoring.',
         expertise: 'Expertise',
-        expertiseList: ['Full-Stack Development', 'API Design and Integration', 'Database Architecture', 'Cross-Platform Mobile Development', 'Cloud Infrastructure'],
+        expertise1: 'Clean Architecture & DDD',
+        expertise2: 'Backend API Development',
+        expertise3: 'Cross-Platform Mobile (Flutter)',
+        expertise4: 'Database Design & Optimization',
+        expertise5: 'Code Review & Refactoring',
+        expertise6: 'Test-Driven Development',
+        expertise7: 'Long-Term System Maintenance',
         values: 'Values',
         qualityFirst: 'Quality First',
-        qualityFirstDesc: 'Writing clean, maintainable code that stands the test of time.',
-        continuousLearning: 'Continuous Learning',
-        continuousLearningDesc: 'Staying current with emerging technologies and best practices.',
-        userFocus: 'User Focus',
-        userFocusDesc: 'Building solutions that solve real problems for real users.',
-        getInTouch: 'Get in Touch'
+        qualityFirstDesc: ' — Writing clean, maintainable, and testable code isn\'t optional — it\'s the baseline. I consistently apply SOLID principles and design patterns to keep codebases healthy over time.',
+        continuousImprovement: 'Continuous Improvement',
+        continuousImprovementDesc: ' — I actively participate in code reviews, write unit and integration tests, and regularly refactor to improve system quality. Learning is a daily habit, not an occasional event.',
+        productionMindset: 'Production Mindset',
+        productionMindsetDesc: ' — I build with production in mind: observability, error handling, performance, and scalability. Features aren\'t done until they\'re deployed and running reliably.'
       },
       projects: {
         title: 'Projects',
@@ -61,12 +74,14 @@ import { languages, defaultLanguage } from '../../i18n';
       },
       tech: {
         title: 'Tech Stack',
-        backend: 'Backend',
+        backend: 'Backend & Server',
+        mobile: 'Mobile Development',
         frontend: 'Frontend',
-        mobile: 'Mobile',
-        database: 'Database',
-        devops: 'DevOps',
-        tools: 'Tools'
+        ai: 'AI & Machine Learning',
+        database: 'Database & Storage',
+        devops: 'DevOps & Cloud',
+        tools: 'Tools & IDEs',
+        methodologies: 'Methodologies'
       },
       experience: {
         title: 'Experience'
@@ -95,17 +110,23 @@ import { languages, defaultLanguage } from '../../i18n';
       about: {
         title: 'Hakkında',
         background: 'Geçmiş',
-        backgroundText: 'Güçlü, ölçeklenebilir uygulamalar geliştirme tutkusu olan özverili bir yazılım mühendisi. .NET ile kurumsal çözümler ve Flutter ile çapraz platform mobil geliştirme uzmanlığı. Clean Code prensipleri, test odaklı geliştirme ve gerçekten etki yaratan kaliteli yazılımlar sunmaya odaklanıyor.',
+        backgroundPara1: 'Celal Bayar Üniversitesi Yazılım Mühendisliği mezunuyum (Not Ortalaması: 3.20/4.00), B1+ İngilizce seviyesine sahibim. .NET ve Flutter ile ölçeklenebilir, üretime hazır kurumsal uygulamalar geliştirme konusunda uzmanlaşıyorum.',
+        backgroundPara2: 'Temiz kod, SOLID prensipleri ve uzun vadeli sürdürülebilirlik benim için sadece bir tercih değil, bir alışkanlık. Prodüksiyonda çalışan sistemler geliştirdim, Clean Architecture ve DDD pratiklerinde sahada deneyim kazandım; kod incelemeleri, test yazımı ve sürekli geliştirme ile büyümeye devam ediyorum.',
         expertise: 'Uzmanlık',
-        expertiseList: ['Tam Yığın Geliştirme', 'API Tasarımı ve Entegrasyonu', 'Veritabanı Mimarisi', 'Çapraz Platform Mobil Geliştirme', 'Bulut Altyapısı'],
+        expertise1: 'Clean Architecture & DDD',
+        expertise2: 'Backend API Geliştirme',
+        expertise3: 'Çapraz Platform Mobil (Flutter)',
+        expertise4: 'Veritabanı Tasarımı & Optimizasyonu',
+        expertise5: 'Kod İnceleme & Refactoring',
+        expertise6: 'Test Odaklı Geliştirme',
+        expertise7: 'Uzun Vadeli Sistem Bakımı',
         values: 'Değerler',
         qualityFirst: 'Kalite Önce',
-        qualityFirstDesc: 'Zamanın testini geçen temiz, bakımı kolay kod yazmak.',
-        continuousLearning: 'Sürekli Öğrenme',
-        continuousLearningDesc: 'Yeni teknolojiler ve en iyi uygulamalar ile güncel kalmak.',
-        userFocus: 'Kullanıcı Odaklılık',
-        userFocusDesc: 'Gerçek kullanıcıların gerçek sorunlarını çözen çözümler geliştirmek.',
-        getInTouch: 'İletişime Geç'
+        qualityFirstDesc: ' — Temiz, test edilebilir ve bakımı kolay kod yazmak seçenek değil, zorunluluktur. SOLID prensipler ve tasarım desenleriyle kod tabanlarını sağlıklı tutuyorum.',
+        continuousImprovement: 'Sürekli Gelişim',
+        continuousImprovementDesc: ' — Kod incelemelerine aktif katılır, birim ve entegrasyon testleri yazar, düzenli refactoring ile sistem kalitesini artırırım. Öğrenmek bir alışkanlık, nadiren yapılan bir etkinlik değil.',
+        productionMindset: 'Üretim Odaklılık',
+        productionMindsetDesc: ' — Gözlemlenebilirlik, hata yönetimi, performans ve ölçeklenebilirlik gözetilerek üretim odaklı yazılım geliştiririm. Bir özellik canlıya çıkıp kararlı çalışana kadar tamamlanmış sayılmaz.'
       },
       projects: {
         title: 'Projeler',
@@ -115,12 +136,14 @@ import { languages, defaultLanguage } from '../../i18n';
       },
       tech: {
         title: 'Teknolojiler',
-        backend: 'Backend',
+        backend: 'Backend & Sunucu',
+        mobile: 'Mobil Geliştirme',
         frontend: 'Frontend',
-        mobile: 'Mobil',
-        database: 'Veritabanı',
-        devops: 'DevOps',
-        tools: 'Araçlar'
+        ai: 'Yapay Zeka & Makine Öğrenmesi',
+        database: 'Veritabanı & Depolama',
+        devops: 'DevOps & Bulut',
+        tools: 'Araçlar & IDE\'ler',
+        methodologies: 'Metodolojiler'
       },
       experience: {
         title: 'Deneyim'
@@ -132,15 +155,14 @@ import { languages, defaultLanguage } from '../../i18n';
 
   function getCurrentLanguage(): Language {
     const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored === 'en' || stored === 'tr') {
-      return stored;
-    }
+    if (stored === 'en' || stored === 'tr') return stored;
     return 'en';
   }
 
   function setLanguage(lang: Language) {
     localStorage.setItem(STORAGE_KEY, lang);
     updateUI(lang);
+    closeDropdown();
   }
 
   function getNestedValue(obj: any, path: string): string | undefined {
@@ -158,43 +180,63 @@ import { languages, defaultLanguage } from '../../i18n';
 
   function updateUI(lang: Language) {
     const t = translations[lang];
-    
+
     document.querySelectorAll('[data-i18n]').forEach((el) => {
       const key = el.getAttribute('data-i18n');
       if (key) {
         const value = getNestedValue(t, key);
-        if (value) {
+        if (value !== undefined) {
           el.textContent = value;
         }
       }
     });
 
-    document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
-      const key = el.getAttribute('data-i18n-placeholder');
-      if (key) {
-        const value = getNestedValue(t, key);
-        if (value && el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement) {
-          (el as HTMLInputElement).placeholder = value;
-        }
-      }
-    });
+    const currentEl = document.getElementById('lang-current');
+    if (currentEl) currentEl.textContent = lang.toUpperCase();
 
-    document.querySelectorAll('.lang-toggle__btn').forEach((btn) => {
+    document.querySelectorAll('.lang-dropdown__option').forEach((btn) => {
       const btnLang = btn.getAttribute('data-lang');
-      btn.classList.toggle('lang-toggle__btn--active', btnLang === lang);
+      btn.classList.toggle('lang-dropdown__option--active', btnLang === lang);
     });
+  }
+
+  function openDropdown() {
+    const menu = document.getElementById('lang-menu');
+    const trigger = document.getElementById('lang-trigger');
+    const dropdown = document.getElementById('lang-dropdown');
+    menu?.classList.add('lang-dropdown__menu--open');
+    trigger?.setAttribute('aria-expanded', 'true');
+    dropdown?.classList.add('lang-dropdown--open');
+  }
+
+  function closeDropdown() {
+    const menu = document.getElementById('lang-menu');
+    const trigger = document.getElementById('lang-trigger');
+    const dropdown = document.getElementById('lang-dropdown');
+    menu?.classList.remove('lang-dropdown__menu--open');
+    trigger?.setAttribute('aria-expanded', 'false');
+    dropdown?.classList.remove('lang-dropdown--open');
   }
 
   function init() {
     const lang = getCurrentLanguage();
     updateUI(lang);
 
-    document.querySelectorAll('.lang-toggle__btn').forEach((btn) => {
+    const trigger = document.getElementById('lang-trigger');
+    trigger?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = document.getElementById('lang-menu')?.classList.contains('lang-dropdown__menu--open');
+      isOpen ? closeDropdown() : openDropdown();
+    });
+
+    document.querySelectorAll('.lang-dropdown__option').forEach((btn) => {
       btn.addEventListener('click', () => {
-        const newLang = (btn.getAttribute('data-lang') as Language);
+        const newLang = btn.getAttribute('data-lang') as Language;
         setLanguage(newLang);
       });
     });
+
+    document.addEventListener('click', closeDropdown);
   }
 
   document.addEventListener('astro:page-load', init);
@@ -202,32 +244,105 @@ import { languages, defaultLanguage } from '../../i18n';
 </script>
 
 <style>
-  .lang-toggle {
-    display: flex;
-    gap: var(--spacing-1);
-    background: var(--color-bg-secondary);
-    padding: 2px;
-    border-radius: 4px;
+  .lang-dropdown {
+    position: relative;
   }
 
-  .lang-toggle__btn {
-    padding: 4px 8px;
-    font-size: var(--font-size-xs);
-    font-weight: 600;
-    color: var(--color-text-secondary);
-    background: transparent;
-    border: none;
-    border-radius: 2px;
+  .lang-dropdown__trigger {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 10px;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
     cursor: pointer;
     transition: all var(--transition-fast);
+    font-family: inherit;
   }
 
-  .lang-toggle__btn:hover {
-    color: var(--color-text-primary);
+  .lang-dropdown__trigger:hover,
+  .lang-dropdown--open .lang-dropdown__trigger {
+    border-color: var(--color-border-hover);
+    background: var(--color-bg-tertiary);
   }
 
-  .lang-toggle__btn--active {
-    background: var(--color-bg-primary);
+  .lang-dropdown__current {
+    font-size: var(--font-size-xs);
+    font-weight: 700;
     color: var(--color-text-primary);
+    letter-spacing: 0.05em;
+  }
+
+  .lang-dropdown__chevron {
+    color: var(--color-text-tertiary);
+    transition: transform var(--transition-fast);
+    flex-shrink: 0;
+  }
+
+  .lang-dropdown--open .lang-dropdown__chevron {
+    transform: rotate(180deg);
+  }
+
+  .lang-dropdown__menu {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    min-width: 130px;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-4px);
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
+    z-index: 200;
+  }
+
+  .lang-dropdown__menu--open {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+  }
+
+  .lang-dropdown__option {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    width: 100%;
+    padding: 8px 14px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: background var(--transition-fast);
+    font-family: inherit;
+    text-align: left;
+  }
+
+  .lang-dropdown__option:hover {
+    background: var(--color-bg-tertiary);
+  }
+
+  .lang-dropdown__option--active {
+    background: var(--color-bg-tertiary);
+  }
+
+  .lang-dropdown__code {
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    letter-spacing: 0.05em;
+    min-width: 20px;
+  }
+
+  .lang-dropdown__option--active .lang-dropdown__code {
+    color: var(--color-accent);
+  }
+
+  .lang-dropdown__label {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
   }
 </style>
