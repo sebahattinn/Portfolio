@@ -9,5 +9,45 @@
   "footer": {
     "builtWith": "Astro ile yapıldı",
     "rights": "Tüm hakları saklıdır"
+  },
+  "index": {
+    "heroTitle": "Yazılım Mühendisi",
+    "heroSubtitle": ".NET ve Flutter ile zarif çözümler geliştirme",
+    "viewProjects": "Projeleri Gör",
+    "learnMore": "Daha Fazla",
+    "featuredProjects": "Öne Çıkan Projeler"
+  },
+  "about": {
+    "title": "Hakkında",
+    "background": "Geçmiş",
+    "backgroundText": "Güçlü, ölçeklenebilir uygulamalar geliştirme tutkusu olan özverili bir yazılım mühendisi. .NET ile kurumsal çözümler ve Flutter ile çapraz platform mobil geliştirme uzmanlığı. Clean Code prensipleri, test odaklı geliştirme ve gerçekten etki yaratan kaliteli yazılımlar sunmaya odaklanıyor.",
+    "expertise": "Uzmanlık",
+    "expertiseList": ["Tam Yığın Geliştirme", "API Tasarımı ve Entegrasyonu", "Veritabanı Mimarisi", "Çapraz Platform Mobil Geliştirme", "Bulut Altyapısı"],
+    "values": "Değerler",
+    "qualityFirst": "Kalite Önce",
+    "qualityFirstDesc": "Zamanın testini geçen temiz, bakımı kolay kod yazmak.",
+    "continuousLearning": "Sürekli Öğrenme",
+    "continuousLearningDesc": "Yeni teknolojiler ve en iyi uygulamalar ile güncel kalmak.",
+    "userFocus": "Kullanıcı Odaklılık",
+    "userFocusDesc": "Gerçek kullanıcıların gerçek sorunlarını çözen çözümler geliştirmek.",
+    "getInTouch": "İletişime Geç"
+  },
+  "projects": {
+    "title": "Projeler",
+    "viewDetails": "Detayları Gör",
+    "technologies": "Teknolojiler",
+    "highlights": "Özellikler"
+  },
+  "tech": {
+    "title": "Teknolojiler",
+    "backend": "Backend",
+    "frontend": "Frontend",
+    "mobile": "Mobil",
+    "database": "Veritabanı",
+    "devops": "DevOps",
+    "tools": "Araçlar"
+  },
+  "experience": {
+    "title": "Deneyim"
   }
 }

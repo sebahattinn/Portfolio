@@ -5,7 +5,7 @@ import Button from '../components/ui/Button.astro';
 import Card from '../components/ui/Card.astro';
 import '../styles/global.css';
 
-const title = 'SeboTech - Full-Stack Software Engineer';
+const title = 'Sebahattin - Full-Stack Software Engineer';
 const description = 'Premium portfolio of a Full-Stack Software Engineer specializing in .NET and Flutter development.';
 ---
 
@@ -26,27 +26,28 @@ const description = 'Premium portfolio of a Full-Stack Software Engineer special
         } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
           document.documentElement.setAttribute('data-theme', 'light');
         }
+        document.body.classList.add('crt-effect');
       })();
     </script>
   </head>
   <body>
-    <Header siteTitle="SeboTech" />
+    <Header siteTitle="Sebahattin" />
     
     <main class="main">
       <section class="hero">
         <div class="container">
-          <h1 class="hero__title">
+          <h1 class="hero__title animate-fade-in" data-i18n="index.heroTitle" style="animation-delay: 0.1s;">
             Full-Stack Software Engineer
           </h1>
-          <p class="hero__subtitle">
+          <p class="hero__subtitle animate-fade-in" data-i18n="index.heroSubtitle" style="animation-delay: 0.3s;">
             Building elegant solutions with .NET and Flutter
           </p>
-          <div class="hero__actions">
-            <Button href="/projects" variant="primary" size="lg">
-              View Projects
+          <div class="hero__actions animate-fade-in" style="animation-delay: 0.5s;">
+            <Button href="/Portfolio/projects" variant="primary" size="lg">
+              <span data-i18n="index.viewProjects">View Projects</span>
             </Button>
-            <Button href="/about" variant="secondary" size="lg">
-              Learn More
+            <Button href="/Portfolio/about" variant="secondary" size="lg">
+              <span data-i18n="index.learnMore">Learn More</span>
             </Button>
           </div>
         </div>
@@ -54,7 +55,7 @@ const description = 'Premium portfolio of a Full-Stack Software Engineer special
 
       <section class="featured">
         <div class="container">
-          <h2 class="section-title">Featured Projects</h2>
+          <h2 class="section-title animate-fade-in" data-i18n="index.featuredProjects" style="animation-delay: 0.2s;">Featured Projects</h2>
           <div class="featured__grid">
             <Card variant="bordered" padding="md">
               <h3 class="card-title">E-paraf</h3>
@@ -94,7 +95,7 @@ const description = 'Premium portfolio of a Full-Stack Software Engineer special
       </section>
     </main>
 
-    <Footer copyright="SeboTech" />
+    <Footer copyright="Sebahattin" />
   </body>
 </html>
 
@@ -180,6 +181,26 @@ const description = 'Premium portfolio of a Full-Stack Software Engineer special
     border-radius: var(--radius-sm);
     font-size: var(--font-size-xs);
     color: var(--color-text-tertiary);
+    transition: all var(--transition-fast);
+  }
+
+  :global(.card) {
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  }
+
+  :global(.card:hover) {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    border-color: var(--color-border-hover);
+  }
+
+  .hero__actions :global(.button) {
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .hero__actions :global(.button:hover) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   }
 
   @media (max-width: 640px) {

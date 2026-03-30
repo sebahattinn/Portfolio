@@ -7,14 +7,14 @@ interface Props {
   siteTitle?: string;
 }
 
-const { siteTitle = 'SeboTech' } = Astro.props;
-const currentPath = Astro.url.pathname;
+const { siteTitle = 'Sebahattin' } = Astro.props;
+const currentPath = Astro.url.pathname.replace(/^\/Portfolio/, '') || '/';
 ---
 
 <header class="header">
   <div class="header__container container">
     <div class="header__left">
-      <a href="/" class="header__logo">
+      <a href="/Portfolio/" class="header__logo">
         {siteTitle}
       </a>
       <SocialLinks variant="header" />
@@ -22,19 +22,19 @@ const currentPath = Astro.url.pathname;
     
     <div class="header__right">
       <nav class="header__nav">
-        <a href="/" class:list={['header__link', { 'header__link--active': currentPath === '/' }]} data-i18n="home">
+        <a href="/Portfolio/" class:list={['header__link', { 'header__link--active': currentPath === '/' }]} data-i18n="home">
           Home
         </a>
-        <a href="/about" class:list={['header__link', { 'header__link--active': currentPath === '/about' }]} data-i18n="about">
+        <a href="/Portfolio/about" class:list={['header__link', { 'header__link--active': currentPath === '/about' }]} data-i18n="about">
           About
         </a>
-        <a href="/tech" class:list={['header__link', { 'header__link--active': currentPath === '/tech' }]} data-i18n="techStack">
+        <a href="/Portfolio/tech" class:list={['header__link', { 'header__link--active': currentPath === '/tech' }]} data-i18n="techStack">
           Tech Stack
         </a>
-        <a href="/experience" class:list={['header__link', { 'header__link--active': currentPath === '/experience' }]} data-i18n="experience">
+        <a href="/Portfolio/experience" class:list={['header__link', { 'header__link--active': currentPath === '/experience' }]} data-i18n="experience">
           Experience
         </a>
-        <a href="/projects" class:list={['header__link', { 'header__link--active': currentPath === '/projects' }]} data-i18n="projects">
+        <a href="/Portfolio/projects" class:list={['header__link', { 'header__link--active': currentPath === '/projects' }]} data-i18n="projects">
           Projects
         </a>
       </nav>

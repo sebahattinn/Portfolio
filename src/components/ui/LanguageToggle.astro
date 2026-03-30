@@ -17,7 +17,7 @@ import { languages, defaultLanguage } from '../../i18n';
 <script>
   type Language = 'en' | 'tr';
   
-  const translations: Record<Language, Record<string, Record<string, string>>> = {
+  const translations: Record<Language, Record<string, any>> = {
     en: {
       nav: {
         home: 'Home',
@@ -29,6 +29,46 @@ import { languages, defaultLanguage } from '../../i18n';
       footer: {
         builtWith: 'Built with Astro',
         rights: 'All rights reserved'
+      },
+      index: {
+        heroTitle: 'Full-Stack Software Engineer',
+        heroSubtitle: 'Building elegant solutions with .NET and Flutter',
+        viewProjects: 'View Projects',
+        learnMore: 'Learn More',
+        featuredProjects: 'Featured Projects'
+      },
+      about: {
+        title: 'About',
+        background: 'Background',
+        backgroundText: 'A dedicated software engineer with a passion for building robust, scalable applications. Specializing in enterprise solutions with .NET and cross-platform mobile development with Flutter. Focused on Clean Code principles, test-driven development, and delivering high-quality software that makes a real impact.',
+        expertise: 'Expertise',
+        expertiseList: ['Full-Stack Development', 'API Design and Integration', 'Database Architecture', 'Cross-Platform Mobile Development', 'Cloud Infrastructure'],
+        values: 'Values',
+        qualityFirst: 'Quality First',
+        qualityFirstDesc: 'Writing clean, maintainable code that stands the test of time.',
+        continuousLearning: 'Continuous Learning',
+        continuousLearningDesc: 'Staying current with emerging technologies and best practices.',
+        userFocus: 'User Focus',
+        userFocusDesc: 'Building solutions that solve real problems for real users.',
+        getInTouch: 'Get in Touch'
+      },
+      projects: {
+        title: 'Projects',
+        viewDetails: 'View Details',
+        technologies: 'Technologies',
+        highlights: 'Highlights'
+      },
+      tech: {
+        title: 'Tech Stack',
+        backend: 'Backend',
+        frontend: 'Frontend',
+        mobile: 'Mobile',
+        database: 'Database',
+        devops: 'DevOps',
+        tools: 'Tools'
+      },
+      experience: {
+        title: 'Experience'
       }
     },
     tr: {
@@ -42,6 +82,46 @@ import { languages, defaultLanguage } from '../../i18n';
       footer: {
         builtWith: 'Astro ile yapıldı',
         rights: 'Tüm hakları saklıdır'
+      },
+      index: {
+        heroTitle: 'Yazılım Mühendisi',
+        heroSubtitle: '.NET ve Flutter ile zarif çözümler geliştirme',
+        viewProjects: 'Projeleri Gör',
+        learnMore: 'Daha Fazla',
+        featuredProjects: 'Öne Çıkan Projeler'
+      },
+      about: {
+        title: 'Hakkında',
+        background: 'Geçmiş',
+        backgroundText: 'Güçlü, ölçeklenebilir uygulamalar geliştirme tutkusu olan özverili bir yazılım mühendisi. .NET ile kurumsal çözümler ve Flutter ile çapraz platform mobil geliştirme uzmanlığı. Clean Code prensipleri, test odaklı geliştirme ve gerçekten etki yaratan kaliteli yazılımlar sunmaya odaklanıyor.',
+        expertise: 'Uzmanlık',
+        expertiseList: ['Tam Yığın Geliştirme', 'API Tasarımı ve Entegrasyonu', 'Veritabanı Mimarisi', 'Çapraz Platform Mobil Geliştirme', 'Bulut Altyapısı'],
+        values: 'Değerler',
+        qualityFirst: 'Kalite Önce',
+        qualityFirstDesc: 'Zamanın testini geçen temiz, bakımı kolay kod yazmak.',
+        continuousLearning: 'Sürekli Öğrenme',
+        continuousLearningDesc: 'Yeni teknolojiler ve en iyi uygulamalar ile güncel kalmak.',
+        userFocus: 'Kullanıcı Odaklılık',
+        userFocusDesc: 'Gerçek kullanıcıların gerçek sorunlarını çözen çözümler geliştirmek.',
+        getInTouch: 'İletişime Geç'
+      },
+      projects: {
+        title: 'Projeler',
+        viewDetails: 'Detayları Gör',
+        technologies: 'Teknolojiler',
+        highlights: 'Özellikler'
+      },
+      tech: {
+        title: 'Teknolojiler',
+        backend: 'Backend',
+        frontend: 'Frontend',
+        mobile: 'Mobil',
+        database: 'Veritabanı',
+        devops: 'DevOps',
+        tools: 'Araçlar'
+      },
+      experience: {
+        title: 'Deneyim'
       }
     }
   };
@@ -61,15 +141,39 @@ import { languages, defaultLanguage } from '../../i18n';
     updateUI(lang);
   }
 
+  function getNestedValue(obj: any, path: string): string | undefined {
+    const keys = path.split('.');
+    let current = obj;
+    for (const key of keys) {
+      if (current && typeof current === 'object' && key in current) {
+        current = current[key];
+      } else {
+        return undefined;
+      }
+    }
+    return typeof current === 'string' ? current : undefined;
+  }
+
   function updateUI(lang: Language) {
     const t = translations[lang];
     
     document.querySelectorAll('[data-i18n]').forEach((el) => {
       const key = el.getAttribute('data-i18n');
-      if (key && t.nav[key]) {
-        el.textContent = t.nav[key];
-      } else if (key && t.footer[key]) {
-        el.textContent = t.footer[key];
+      if (key) {
+        const value = getNestedValue(t, key);
+        if (value) {
+          el.textContent = value;
+        }
+      }
+    });
+
+    document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      if (key) {
+        const value = getNestedValue(t, key);
+        if (value && el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement) {
+          (el as HTMLInputElement).placeholder = value;
+        }
       }
     });
 

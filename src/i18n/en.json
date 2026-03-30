@@ -9,5 +9,45 @@
   "footer": {
     "builtWith": "Built with Astro",
     "rights": "All rights reserved"
+  },
+  "index": {
+    "heroTitle": "Full-Stack Software Engineer",
+    "heroSubtitle": "Building elegant solutions with .NET and Flutter",
+    "viewProjects": "View Projects",
+    "learnMore": "Learn More",
+    "featuredProjects": "Featured Projects"
+  },
+  "about": {
+    "title": "About",
+    "background": "Background",
+    "backgroundText": "A dedicated software engineer with a passion for building robust, scalable applications. Specializing in enterprise solutions with .NET and cross-platform mobile development with Flutter. Focused on Clean Code principles, test-driven development, and delivering high-quality software that makes a real impact.",
+    "expertise": "Expertise",
+    "expertiseList": ["Full-Stack Development", "API Design and Integration", "Database Architecture", "Cross-Platform Mobile Development", "Cloud Infrastructure"],
+    "values": "Values",
+    "qualityFirst": "Quality First",
+    "qualityFirstDesc": "Writing clean, maintainable code that stands the test of time.",
+    "continuousLearning": "Continuous Learning",
+    "continuousLearningDesc": "Staying current with emerging technologies and best practices.",
+    "userFocus": "User Focus",
+    "userFocusDesc": "Building solutions that solve real problems for real users.",
+    "getInTouch": "Get in Touch"
+  },
+  "projects": {
+    "title": "Projects",
+    "viewDetails": "View Details",
+    "technologies": "Technologies",
+    "highlights": "Highlights"
+  },
+  "tech": {
+    "title": "Tech Stack",
+    "backend": "Backend",
+    "frontend": "Frontend",
+    "mobile": "Mobile",
+    "database": "Database",
+    "devops": "DevOps",
+    "tools": "Tools"
+  },
+  "experience": {
+    "title": "Experience"
   }
 }

@@ -96,3 +96,74 @@ code, pre {
   white-space: nowrap;
   border: 0;
 }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 0.97; }
+  50% { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.typing-effect {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid var(--color-accent);
+  animation: typing 3s steps(40, end), blink 0.75s step-end infinite;
+  animation-fill-mode: forwards;
+}
+
+.crt-effect::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.02) 50%,
+    rgba(0, 0, 0, 0.02) 50%
+  );
+  background-size: 100% 4px;
+  z-index: 1000;
+}
+
+.crt-effect::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    rgba(0, 0, 0, 0.15) 100%
+  );
+  z-index: 1001;
+}
