@@ -18,7 +18,7 @@ const description = 'Technologies and tools used for building software solutions
     <title>{title}</title>
     <script is:inline>
       (function() {
-        var theme = localStorage.getItem('sebotech-theme');
+        var theme = localStorage.getItem('sebahattin-theme');
         if (theme === 'light' || theme === 'dark') {
           document.documentElement.setAttribute('data-theme', theme);
         } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
@@ -35,7 +35,7 @@ const description = 'Technologies and tools used for building software solutions
         <div class="container">
           <h1 class="page-title" data-i18n="tech.title">Tech Stack</h1>
           
-          <div class="tech__grid">
+          <div class="tech__grid reveal-stagger">
             <Card variant="bordered" padding="lg">
               <h2 class="category-title" data-i18n="tech.backend">Backend & Server</h2>
               <ul class="tech-list">
@@ -136,6 +136,18 @@ const description = 'Technologies and tools used for building software solutions
             </Card>
 
             <Card variant="bordered" padding="lg">
+              <h2 class="category-title" data-i18n="tech.blockchain">Blockchain & Web3</h2>
+              <ul class="tech-list">
+                <li>Solidity</li>
+                <li>Smart Contract Development</li>
+                <li>Ethereum / EVM</li>
+                <li>Hardhat</li>
+                <li>Web3.js / Ethers.js</li>
+                <li>ERC-20 / ERC-721 Standards</li>
+              </ul>
+            </Card>
+
+            <Card variant="bordered" padding="lg">
               <h2 class="category-title" data-i18n="tech.methodologies">Methodologies</h2>
               <ul class="tech-list">
                 <li>Clean Code</li>
@@ -182,6 +194,19 @@ const description = 'Technologies and tools used for building software solutions
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--spacing-6);
+  }
+
+  :global(.tech .card) {
+    background: var(--color-bg-card, var(--color-bg-secondary));
+    transition: border-color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base);
+    border-left: 3px solid transparent;
+  }
+
+  :global(.tech .card:hover) {
+    border-color: var(--color-border-hover);
+    border-left-color: var(--color-accent);
+    box-shadow: 0 0 0 1px var(--color-border-accent), 0 8px 32px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px);
   }
 
   .category-title {

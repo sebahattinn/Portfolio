@@ -18,7 +18,7 @@ const description = 'Learn about the background and experience of a Full-Stack S
     <title>{title}</title>
     <script is:inline>
       (function() {
-        var theme = localStorage.getItem('sebotech-theme');
+        var theme = localStorage.getItem('sebahattin-theme');
         if (theme === 'light' || theme === 'dark') {
           document.documentElement.setAttribute('data-theme', theme);
         } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
@@ -35,7 +35,7 @@ const description = 'Learn about the background and experience of a Full-Stack S
         <div class="container container--narrow">
           <h1 class="page-title" data-i18n="about.title">About</h1>
 
-          <div class="about__content">
+          <div class="about__content reveal-stagger">
             <Card variant="bordered" padding="lg">
               <h2 class="section-heading" data-i18n="about.background">Background</h2>
               <p class="text" data-i18n="about.backgroundPara1">

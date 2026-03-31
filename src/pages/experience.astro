@@ -9,6 +9,7 @@ const description = 'Professional work history and career progression.';
 
 const experiences = [
   {
+    id: 'dengage',
     title: '.NET Intern',
     company: 'Dengage',
     type: 'Internship · On-site',
@@ -22,6 +23,7 @@ const experiences = [
     ]
   },
   {
+    id: 'eparaf',
     title: 'Backend Developer',
     company: 'EPARAF',
     type: 'Full-time · Hybrid',
@@ -35,6 +37,7 @@ const experiences = [
     ]
   },
   {
+    id: 'performans',
     title: 'Flutter Developer Intern',
     company: 'Performans Software',
     type: 'Internship · On-site',
@@ -48,6 +51,7 @@ const experiences = [
     ]
   },
   {
+    id: 'mikrotek',
     title: 'Software Technical Support',
     company: 'Mikrotek Bilgisayar',
     type: 'Internship · On-site',
@@ -73,7 +77,7 @@ const experiences = [
     <title>{title}</title>
     <script is:inline>
       (function() {
-        var theme = localStorage.getItem('sebotech-theme');
+        var theme = localStorage.getItem('sebahattin-theme');
         if (theme === 'light' || theme === 'dark') {
           document.documentElement.setAttribute('data-theme', theme);
         } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
@@ -90,21 +94,21 @@ const experiences = [
         <div class="container container--narrow">
           <h1 class="page-title" data-i18n="experience.title">Experience</h1>
           
-          <div class="timeline">
+          <div class="timeline reveal-stagger">
             {experiences.map((exp, index) => (
               <Card variant="bordered" padding="lg" class="timeline-item">
                 <div class="timeline-header">
                   <div class="timeline-marker"></div>
                   <div class="timeline-info">
                     <h2 class="job-title">{exp.title}</h2>
-                    <p class="job-company">{exp.company} · <span class="job-type">{exp.type}</span></p>
+                    <p class="job-company">{exp.company} · <span class="job-type" data-i18n={`exp.${exp.id}.type`}>{exp.type}</span></p>
                     <p class="job-period">{exp.period}</p>
                   </div>
                 </div>
-                <p class="job-description">{exp.description}</p>
+                <p class="job-description" data-i18n={`exp.${exp.id}.desc`}>{exp.description}</p>
                 <ul class="job-highlights">
-                  {exp.highlights.map(highlight => (
-                    <li>{highlight}</li>
+                  {exp.highlights.map((highlight, i) => (
+                    <li data-i18n={`exp.${exp.id}.h${i+1}`}>{highlight}</li>
                   ))}
                 </ul>
               </Card>

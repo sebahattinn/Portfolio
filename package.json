@@ -1,8 +1,8 @@
 {
-  "name": "sebotech-portfolio",
+  "name": "sebahattin-portfolio",
   "type": "module",
   "version": "1.0.0",
-  "description": "SeboTech - Premium portfolio website for a Full-Stack Software Engineer",
+  "description": "Sebahattin - Premium portfolio website for a Full-Stack Software Engineer",
   "engines": {
     "node": ">=22.12.0"
   },

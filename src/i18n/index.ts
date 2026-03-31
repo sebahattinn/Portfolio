@@ -23,7 +23,7 @@ export function getLanguageFromUrl(url: URL): Language {
   return defaultLanguage;
 }
 
-export function useTranslations(lang: Language) {
+export function useTranslations(lang: Language) {  
   return translations[lang];
 }
 

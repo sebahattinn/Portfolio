@@ -18,7 +18,7 @@ import '../styles/global.css';
     />
     <script is:inline>
       (function() {
-        var theme = localStorage.getItem('sebotech-theme');
+        var theme = localStorage.getItem('sebahattin-theme');
         if (theme === 'light' || theme === 'dark') {
           document.documentElement.setAttribute('data-theme', theme);
         } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
@@ -28,7 +28,7 @@ import '../styles/global.css';
     </script>
   </head>
   <body>
-    <Header siteTitle="SeboTech" />
+    <Header siteTitle="Sebahattin" />
     
     <main class="main">
       <section class="error">
@@ -39,7 +39,7 @@ import '../styles/global.css';
             The page you are looking for does not exist or has been moved.
           </p>
           <div class="error__actions">
-            <Button href="/" variant="primary">
+            <Button href="/Portfolio/" variant="primary">
               Return Home
             </Button>
           </div>

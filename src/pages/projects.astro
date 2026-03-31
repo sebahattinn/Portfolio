@@ -75,7 +75,7 @@ const projects = [
     <title>{title}</title>
     <script is:inline>
       (function() {
-        var theme = localStorage.getItem('sebotech-theme');
+        var theme = localStorage.getItem('sebahattin-theme');
         if (theme === 'light' || theme === 'dark') {
           document.documentElement.setAttribute('data-theme', theme);
         } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
@@ -92,11 +92,11 @@ const projects = [
         <div class="container">
           <h1 class="page-title" data-i18n="projects.title">Projects</h1>
           
-          <div class="projects__grid">
+          <div class="projects__grid reveal-stagger">
             {projects.map(project => (
               <button class="project-card" type="button" data-modal-open={`modal-${project.id}`}>
                 <h2 class="project-title">{project.title}</h2>
-                <p class="project-description">{project.shortDescription}</p>
+                <p class="project-description" data-i18n={`proj.${project.id}.short`}>{project.shortDescription}</p>
                 
                 <div class="project-section">
                   <h3 class="section-label" data-i18n="projects.technologies">Technologies</h3>
@@ -120,7 +120,7 @@ const projects = [
     {projects.map(project => (
       <Modal id={`modal-${project.id}`} title={project.title}>
         <div class="modal-body">
-          <p class="modal-description">{project.description}</p>
+          <p class="modal-description" data-i18n={`proj.${project.id}.desc`}>{project.description}</p>
           
           <div class="modal-section">
             <h3 class="section-label" data-i18n="projects.technologies">Technologies</h3>
@@ -134,8 +134,8 @@ const projects = [
           <div class="modal-section">
             <h3 class="section-label" data-i18n="projects.highlights">Highlights</h3>
             <ul class="highlights-list">
-              {project.highlights.map(h => (
-                <li>{h}</li>
+              {project.highlights.map((h, i) => (
+                <li data-i18n={`proj.${project.id}.h${i+1}`}>{h}</li>
               ))}
             </ul>
           </div>
@@ -190,9 +190,9 @@ const projects = [
   }
 
   .project-card:hover {
-    border-color: var(--color-border-hover);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
+    border-color: var(--color-border-accent, rgba(79, 142, 247, 0.25));
+    transform: translateY(-3px);
+    box-shadow: 0 0 0 1px rgba(79, 142, 247, 0.15), 0 12px 32px rgba(0, 0, 0, 0.35);
   }
 
   .project-card:focus {

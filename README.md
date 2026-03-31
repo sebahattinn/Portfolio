@@ -1,4 +1,4 @@
-# SeboTech Portfolio
+# Sebahattin Portfolio
 
 Premium, high-performance static portfolio website for a Full-Stack Software Engineer specializing in .NET and Flutter.
 
@@ -60,4 +60,4 @@ npm run preview
 
 ## License
 
-Proprietary - SeboTech
+Proprietary - Sebahattin
